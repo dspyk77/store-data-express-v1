@@ -5,18 +5,18 @@ app.use(express.static("public"))
 
 app.use(express.json())
 
-users = [
+products = [
   {
-    firstName: 'John',
-    lastName: 'Doe',
-    age: 25,
-    weight: 183.5
+    productName: 'Apple',
+    productPrice: '1.25',
+    productWeight: .5,
+    productCategory: 'Produce'
   },
   {
-    firstName: 'Jane',
-    lastName: 'Doe',
-    age: 23,
-    weight: 146.3
+    productName: 'Chips',
+    productPrice: '5.25',
+    productWeight: 1.2,
+    productCategory: 'Snacks'
   }
 ]
 
@@ -24,8 +24,8 @@ app.get("/api", async function (request, response) {
   response.end("Welcome to my API")
 })
 
-app.get("/api/users", async function (request, response) {
-  response.json(users)
+app.get("/api/products", async function (request, response) {
+  response.json(products)
 })
 
 app.get("/api/user/:id", async function (request, response) {
@@ -47,15 +47,15 @@ app.get("/api/user/:id", async function (request, response) {
     `request.params.myCoolVariable`
   */
 
-  response.json(users[id])
+  response.json(products[id])
 })
 
 // app.get("/api/user/0", async function(request, response) {
-// 	response.json(users[0])
+// 	response.json(products[0])
 // })
 
 // app.get("/api/user/1", async function(request, response) {
-// 	response.json(users[1])
+// 	response.json(products[1])
 // })
 
 app.listen(3000, function() {
