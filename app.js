@@ -7,16 +7,16 @@ app.use(express.json())
 
 products = [
   {
-    productName: 'Apple',
-    productPrice: '1.25',
-    productWeight: .5,
-    productCategory: 'Produce'
+    name: 'Apple',
+    price: '1.25',
+    weight: .5,
+    category: 'Produce'
   },
   {
-    productName: 'Chips',
+    name: 'Chips',
     productPrice: '5.25',
-    productWeight: 1.2,
-    productCategory: 'Snacks'
+    weight: 1.2,
+    category: 'Snacks'
   }
 ]
 
@@ -28,7 +28,7 @@ app.get("/api/products", async function (request, response) {
   response.json(products)
 })
 
-app.get("/api/user/:id", async function (request, response) {
+app.get("/api/product/:id", async function (request, response) {
   /*
     NOTE: This endpoint does the exact same thing as the
     2 endpoints below that are commented out. Placing `:id` in

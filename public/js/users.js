@@ -1,15 +1,15 @@
 
 var output = document.querySelector("#output")
 
-async function getUsers() {
-  var response = await fetch("/api/users", { method: "GET" })
-  var users = await response.json()
+async function getProducts() {
+  var response = await fetch("/api/products", { method: "GET" })
+  var products = await response.json()
 
-	console.log(users)
-	console.log(users[0])
-	console.log(users[1])
-	console.log(users[0]["firstName"])
-	console.log(users[1]["firstName"])
+	console.log(products)
+	console.log(products[0])
+	console.log(products[1])
+	console.log(products[0]["name"])
+	console.log(products[1]["name"])
 
-	output.innerHTML = JSON.stringify(users)
+	output.innerHTML = JSON.stringify(products)
 }

@@ -1,7 +1,7 @@
 
 var output = document.querySelector("#output")
 
-async function getUser() {
+async function getProduct() {
   /*
     NOTE: This is fetching User 1 every time, but you can
     add an input on the page and do the following:
@@ -15,12 +15,12 @@ async function getUser() {
     request below
   */
 
-  var response = await fetch("/api/user/1", { method: "GET" })
-  var user = await response.json()
+  var response = await fetch("/api/product/1", { method: "GET" })
+  var product= await response.json()
 
-	console.log(user)
-	console.log(user["firstName"])
-	console.log(user["lastName"])
+	console.log(product)
+	console.log(product["name"])
+	console.log(product["category"])
 
-	output.innerHTML = JSON.stringify(user)
+	output.innerHTML = JSON.stringify(product)
 }
