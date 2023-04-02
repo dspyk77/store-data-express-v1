@@ -1,5 +1,5 @@
 
-var output = document.querySelector("#output")
+let output = document.querySelector("#output")
 
 async function getProduct() {
   /*
@@ -15,8 +15,8 @@ async function getProduct() {
     request below
   */
 
-  var response = await fetch("/api/product/1", { method: "GET" })
-  var product= await response.json()
+  let response = await fetch("/api/product/${id}", { method: "GET" })
+  let product= await response.json()
 
 	console.log(product)
 	console.log(product["name"])

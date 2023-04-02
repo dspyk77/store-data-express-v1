@@ -1,22 +1,21 @@
-var express = require('express')
-var app = express()
+const express = require('express')
+const app = express()
 
 app.use(express.static("public"))
 
 app.use(express.json())
 
+const nameInput = document.querySelector("#name-input");
+const priceInput = document.querySelector("#price-input");
+const weightInput = document.querySelector("#weight-input");
+const categoryInput = document.querySelector("#category-input");
+
 products = [
   {
-    name: 'Apple',
-    price: '1.25',
-    weight: .5,
-    category: 'Produce'
-  },
-  {
-    name: 'Chips',
-    productPrice: '5.25',
-    weight: 1.2,
-    category: 'Snacks'
+    name: nameInput.value,
+    price: priceInput.value,
+    weight: weightInput.value,
+    category: categoryInput.value
   }
 ]
 
