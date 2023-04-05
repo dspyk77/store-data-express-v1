@@ -5,19 +5,9 @@ app.use(express.static("public"))
 
 app.use(express.json())
 
-const nameInput = document.querySelector("#name-input");
-const priceInput = document.querySelector("#price-input");
-const weightInput = document.querySelector("#weight-input");
-const categoryInput = document.querySelector("#category-input");
+idCounter = 0
 
-products = [
-  {
-    name: nameInput.value,
-    price: priceInput.value,
-    weight: weightInput.value,
-    category: categoryInput.value
-  }
-]
+products = []
 
 app.get("/api", async function (request, response) {
   response.end("Welcome to my API")
