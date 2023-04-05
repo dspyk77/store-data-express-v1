@@ -9,46 +9,73 @@ idCounter = 0
 
 products = []
 
-app.get("/api", async function (request, response) {
-  response.end("Welcome to my API")
+app.get("/products", async function(request, response) {
+  // Respond with the products array
+  response.json(products)
 })
 
 app.get("/api/products", async function (request, response) {
   response.json(products)
 })
 
-app.get("/api/product/:id", async function (request, response) {
-  /*
-    NOTE: This endpoint does the exact same thing as the
-    2 endpoints below that are commented out. Placing `:id` in
-    the specified URL path for this endpoint allows the user
-    to provide whatever value they like and we can capture it
-    with this line of code:
-  */
+app.get("/products/:id", async function(request, response) {
+  // NOTE: `params` accesses values from the URL path  (:id)
   var id = request.params.id
 
-  /*
-    CONTINUED: If we changed the path to "/api/user/:cat",
-    then we could access that value with `request.params.cat`.
-    Also, if you want to use multiple words for a path variable
-    like this, then you would use lowerCamelCase, like so:
-    "/api/user/:myCoolVariable"
-    `request.params.myCoolVariable`
-  */
+  var productIndex = findProductIndexById(id)
 
-  response.json(products[id])
+  // Respond with the specified product
+  response.json(products[productIndex])
 })
 
-// app.get("/api/user/0", async function(request, response) {
-// 	response.json(products[0])
-// })
+app.post("/products", async function(request, response) {
+  // NOTE: `body` accesses values from the JSON request body
+  var providedName = request.body["firstName"]
+  var providedCategory = request.body["lastName"]
+  var providedPrice = request.body["age"]
+  var providedWeight = request.body["weight"]
 
-// app.get("/api/user/1", async function(request, response) {
-// 	response.json(products[1])
-// })
+  var nextId = idCounter
+  idCounter = idCounter + 1
+
+  var newProduct = {
+    id: nextId,
+    name: providedName,
+    category: providedCategory,
+    price: providedPrice,
+    weight: providedWeight,
+  }
+  console.log(newProduct)
+
+  products.push(newProduct)
+
+  // Respond with the new product
+  response.json(newProduct)
+})
+
+app.delete("/products/:id", async function(request, response) {
+  // NOTE: `params` accesses values from the URL path
+  var id = request.params.id
+
+  var productIndex = findProductIndexById(id);
+
+  products.splice(productIndex, 1);
+
+  // Respond with a message
+  response.json({ msg: 'Deleted product' })
+})
 
 app.listen(3000, function() {
   console.log("App listening on port 3000")
 })
+
+function findProductIndexById(id) {
+  for (var i = 0; i < products.length; i++) {
+    var product = products[i]
+    if (product["id"] == id) {
+      return i;
+    }
+  }
+}
 
 module.exports = app
