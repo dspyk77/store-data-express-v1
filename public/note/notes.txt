@@ -1,0 +1,5 @@
+addItem.addEventListener("click", () => {
+	// open the redirected page in a new tab
+	window.open("./users.html", "_blank");
+	console.log("I heard the addItem btn clicked!")
+});

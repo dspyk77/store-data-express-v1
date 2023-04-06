@@ -1,20 +1,26 @@
-const addItem = document.querySelector("#add-item-btn");
+const displayProducts = document.querySelector("#display-products");
 
-addItem.addEventListener("click", () => {
-	// open the redirected page in a new tab
-	window.open("./users.html", "_blank");
-	console.log("I heard the addItem btn clicked!")
-});
+async function updateTable() {
+  var response = await fetch("/products", { method: "GET" })
+  var products = await response.json()
+  console.log(products)
 
-async function getProducts() {
-  var response = await fetch("/api/products", { method: "GET" });
-  var products = await response.json();
+  for (var i = 0; i < products.length; i++) {
+    var product = products[i]
 
-	console.log(products);
-	console.log(products[0]);
-	console.log(products[1]);
-	console.log(products[0]["name"]);
-	console.log(products[1]["name"]);
-
-	output.innerHTML = JSON.stringify(products);
+    tableBody.insertAdjacentHTML("beforeend", `
+      <tr>
+        <td>${product['id']}</td>
+        <td>${product['category']}</td>
+        <td>${product['name']}</td>
+        <td>${product['price']}</td>
+        <td>${product['weight']}</td>
+        <td>
+          <a href="./product.html?id=${product['id']}">Show</a>
+        </td>
+      </tr>
+    `)
+  }
 }
+
+updateTable()
