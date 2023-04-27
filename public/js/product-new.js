@@ -21,5 +21,5 @@ async function sendCreateProductRequest() {
 
   var product = await response.json()
   console.log(product)
-  location.href=`./product.html`
+  location.href=`/products.html`
 }

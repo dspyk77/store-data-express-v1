@@ -1,37 +1,39 @@
 
-let output = document.querySelector("#output")
+var editLink = document.querySelector("#edit-link")
 
-async function getProduct() {
-  /*
-    NOTE: This is fetching User 1 every time, but you can
-    add an input on the page and do the following:
+var idColumn = document.querySelector("#id")
+var categoryColumn = document.querySelector("#category")
+var nameColumn = document.querySelector("#name")
+var priceColumn = document.querySelector("#price")
+var weightColumn = document.querySelector("#weight")
 
-    ```
-      var idInput = document.querySelector("#id-input")
-      var id = idInput.value
-    ```
+var productId = getUserIdFromUrlQueryParam()
 
-    Then use this URL: `/api/user/${id}` in the fetch
-    request below
-  */
-
-  let response = await fetch("/api/product/${id}", { method: "GET" })
-  let product= await response.json()
-
-  // output.insertAdjacentHTML("beforeend", `
-  //   <ul>
-  //     <li>Name: Apple</li>
-  //     <li>Category: Produce</li>
-  //     <li>Price: $2.59</li>
-  //      <li>Weight: 3oz</li>
-  //   </ul>
-  // `)
-
-	console.log(product)
-	console.log(product["name"])
-	console.log(product["category"])
-
-	output.innerHTML = JSON.stringify(product)
+function updateEditLink() {
+  editLink.href = `./product/edit.html?id=${productId}`
 }
 
+async function getProduct() {
+  var apiUrl = `/products/${productId}`
+  console.log(apiUrl)
+
+  var response = await fetch(apiUrl, { method: "GET" })
+  var product= await response.json()
+  console.log(product)
+
+  idColumn.innerHTML = product["id"]
+  categoryColumn.innerHTML = product["category"]
+  lastNameColumn.innerHTML = product["name"]
+  priceColumn.innerHTML = product["age"]
+  weightColumn.innerHTML = product["weight"]
+	// output.innerHTML = JSON.stringify(product)
+}
+
+async function sendDeleteUserRequest() {
+  var response = await fetch(`/products/${productId}`, { method: "DELETE" })
+  var message = await response.json()
+  console.log(message)
+}
+
+updateEditLink()
 getProduct()

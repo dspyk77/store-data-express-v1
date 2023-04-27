@@ -13,11 +13,13 @@ app.get("/products", async function(request, response) {
   // Respond with the products array
   response.json(products)
   console.log("/products was called!")
+  console.log(products)
 })
 
 app.get("/api/products", async function (request, response) {
   response.json(products)
   console.log("api/products was called!")
+  console.log(products)
 })
 
 app.get("/products/:id", async function(request, response) {
@@ -29,6 +31,7 @@ app.get("/products/:id", async function(request, response) {
   // Respond with the specified product
   response.json(products[productIndex])
   console.log("/products/:id was called!")
+  console.log(products[productIndex])
 })
 
 app.post("/products", async function(request, response) {
@@ -54,6 +57,8 @@ app.post("/products", async function(request, response) {
 
   // Respond with the new product
   response.json(newProduct)
+  console.log("/products was called!")
+  console.log(newProduct)
 })
 
 app.delete("/products/:id", async function(request, response) {

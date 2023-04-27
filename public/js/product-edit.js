@@ -1,49 +1,49 @@
 
 var backLink = document.querySelector("#back-link")
 
-var firstNameInput = document.querySelector("#first-name")
-var lastNameInput = document.querySelector("#last-name")
-var ageInput = document.querySelector("#age")
+var categoryInput = document.querySelector("#category")
+var nameInput = document.querySelector("#name")
+var priceInput = document.querySelector("#price")
 var weightInput = document.querySelector("#weight")
 
-var userId = getUserIdFromUrlQueryParam()
+var productId = getUserIdFromUrlQueryParam()
 
 function updateBackLink() {
-  backLink.href = `../user.html?id=${userId}`
+  backLink.href = `../product.html?id=${productId}`
 }
 
 async function updateInputs() {
-  var apiUrl = `/users/${userId}`
+  var apiUrl = `/products/${productId}`
   console.log(apiUrl)
 
   var response = await fetch(apiUrl, { method: "GET" })
-  var user = await response.json()
-  console.log(user)
+  var product = await response.json()
+  console.log(product)
 
-  firstNameInput.value = user["firstName"]
-  lastNameInput.value = user["lastName"]
-  ageInput.value = user["age"]
-  weightInput.value = user["weight"]
+  categoryInput.value = product["category"]
+  nameInput.value = product["name"]
+  priceInput.value = product["price"]
+  weightInput.value = product["weight"]
 }
 
 async function sendUpdateUserRequest() {
-  var updatedUser = {
-    firstName: firstNameInput.value,
-    lastName: lastNameInput.value,
-    age: ageInput.value,
+  var updatedProduct = {
+    category: categoryInput.value,
+    name: nameInput.value,
+    price: priceInput.value,
     weight: weightInput.value
   }
 
-  var response = await fetch(`/users/${userId}`,
+  var response = await fetch(`/products/${productId}`,
     {
       method: "PUT",
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedUser)
+      body: JSON.stringify(updatedProduct)
     }
   )
 
-  var user = await response.json()
-  console.log(user)
+  var product = await response.json()
+  console.log(product)
 }
 
 updateBackLink()
