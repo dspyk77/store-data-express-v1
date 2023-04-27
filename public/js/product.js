@@ -23,8 +23,8 @@ async function getProduct() {
 
   idColumn.innerHTML = product["id"]
   categoryColumn.innerHTML = product["category"]
-  lastNameColumn.innerHTML = product["name"]
-  priceColumn.innerHTML = product["age"]
+  nameColumn.innerHTML = product["name"]
+  priceColumn.innerHTML = product["price"]
   weightColumn.innerHTML = product["weight"]
 	// output.innerHTML = JSON.stringify(product)
 }

@@ -29,7 +29,7 @@
           <h1 class="display-4 fw-normal">Product Added!</h1>
           <div class="lead fw-normal">
             <!-- idexed product displays here -->
-            <table class="table table-hover">
+            <table class="table table-hover tabl-sm">
               <thead>
                 <tr>
                   <th scope="col">Category</th>
@@ -40,10 +40,18 @@
               </thead>
               <tbody id="display-products">
                 <!-- input values -->
-                <tr id="category"></tr>
-                <tr id="name"></tr>
-                <tr id="price"></tr>
-                <tr id="weight"></tr>
+                <td scope="row">
+                    <input type="text" id="category">
+                </td>
+                <td>
+                    <input type="text" id="name">
+                </td>
+                <td>
+                    <input type="text" id="price">
+                </td>
+                <td>
+                    <input type="text" id="weight">
+                </td>
               </tbody>
             </table>
             <button type="button" class="btn btn-primary" onclick="sendUpdateUserRequest()">Update Product</button>
@@ -62,8 +70,8 @@
       <!-- page footer inserts here -->
     </footer>
 
-    <script src="./js/utilities.js"></script>
-    <script src="./js/all-page-header-footer.js" async defer></script>
+    <script src="../js/utilities.js"></script>
+    <script src="../js/all-page-header-footer.js" async defer></script>
     <script src="../js/product-edit.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">

@@ -29,7 +29,7 @@
           <h1 class="display-4 fw-normal">Product Added!</h1>
           <div class="lead fw-normal">
             <!-- idexed product displays here -->
-            <table class="table table-hover">
+            <table class="table table-hover table-dark">
               <thead>
                 <tr>
                   <th scope="col">ID</th>
@@ -40,12 +40,13 @@
                 </tr>
               </thead>
               <tbody id="display-products">
-                <!-- input values -->
-                <tr id="id"></tr>
-                <tr id="category"></tr>
-                <tr id="name"></tr>
-                <tr id="price"></tr>
-                <tr id="weight"></tr>
+                <tr>
+                  <th scope="row" id="id"></th>
+                  <td id="category"></td>
+                  <td id="name"></td>
+                  <td id="price"></td>
+                  <td id="weight"></td>
+                </tr>
               </tbody>
             </table>
             <a href="products.html" class="btn btn-secondary">Back</a>
