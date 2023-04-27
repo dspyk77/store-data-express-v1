@@ -1,77 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Store Data</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Store Data</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
 
-  <body>
+<body>
 
-    <nav id="page-nav" class="navbar navbar-expand-lg bg-light rounded">
-      <!-- page nav inserts here -->
-    </nav>
+  <nav id="page-nav" class="navbar navbar-expand-lg bg-light rounded">
+    <!-- page nav inserts here -->
+  </nav>
 
-    <header id="page-header" class="py-3 mb-4 border-bottom">
-      <!-- page header inserts here -->
-    </header>
+  <header id="page-header" class="py-3 mb-4 border-bottom">
+    <!-- page header inserts here -->
+  </header>
 
-    <main class="container-md">
+  <main class="container-md">
 
-      <section class="mb-4">
-        <div class="bg-light p-5 rounded my-4 d-flex justify-content-center">
-          <span class=" fw-bold fs-3">Enter the product name, price, weight and category below:</span>
+    <div class="px-4 py-5 my-5 text-center">
+      <h1 class="display-5 fw-bold text-body-emphasis">Welcome!</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Hey! Welcome to store data! This project represents my initial delv into backend
+          programming. This project utilizes the core CRUD princibles in the form of product inventory. To see it in
+          action, simply click the get started button!</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onclick="location.href=`./products.html`">Get Started</button>
+
         </div>
+      </div>
+    </div>
 
-        <div class="container m-2 pb-4">
-          <div class="row">
-            <div class="col justify-content-center">
-              <label for="name-input">Name:</label>
-              <div>
-                <input type="text" name="name" min="0" class="form-control-sm" id="name-input" placeholder="Apple">
-              </div>
-            </div>
-            <div class="col">
-              <label for="price-input">Price:</label>
-              <div>
-                <span>$<input type="number" min="0" class="form-control-sm" id="price-input" placeholder="1.50"></span>
-              </div>
-            </div>
-            <div class="col">
-              <label for="weight-input">Weight:</label>
-              <div>
-                <input type="number" min="0" class="form-control-sm" id="weight-input" placeholder="0.5">
-              </div>
-            </div>
-            <div class="col">
-              <label for="category-input">Category:</label>
-              <div>
-                <input type="text" class="form-control-sm" id="category-input" placeholder="Produce">
-              </div>
-            </div>
-          </div>
-        </div>
-        <button id="add-item-btn" class="btn btn-sm btn-primary">Add Product</button>
-      </section>
+  </main>
 
-    </main>
+  <footer id="page-footer" class="container-fluid d-flex flex-column align-items-center p-3 bg-dark gap-3 text-light">
+    <!-- page footer inserts here -->
+  </footer>
 
-    <footer id="page-footer" class="container-fluid d-flex flex-column align-items-center p-3 bg-dark gap-3 text-light">
-      <!-- page footer inserts here -->
-    </footer>
-
-    <script src="./js/all-page-header-footer.js" async defer></script>
-    <script src="./js/product-new.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-      </script>
-  </body>
+  <script src="./js/all-page-header-footer.js" async defer></script>
+  <script src="./js/product-new.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+    </script>
+</body>
 
 </html>

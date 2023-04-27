@@ -8,7 +8,7 @@ async function updateTable() {
   for (var i = 0; i < products.length; i++) {
     var product = products[i]
 
-    tableBody.insertAdjacentHTML("beforeend", `
+    displayProducts.insertAdjacentHTML("beforeend", `
       <tr>
         <td>${product['id']}</td>
         <td>${product['category']}</td>

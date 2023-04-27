@@ -38,7 +38,7 @@ async function renderHeaderFooter() {
     "beforeend",
     `
     <div class="container d-flex flex-wrap justify-content-center">
-      <img src="./img/store-data-logo.png"
+      <img src="/img/store-data-logo.png"
         alt="store logo, black computer screen with green bionary text, to the right says you store, we analize">
     </div>
     `

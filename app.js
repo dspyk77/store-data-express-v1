@@ -12,10 +12,12 @@ products = []
 app.get("/products", async function(request, response) {
   // Respond with the products array
   response.json(products)
+  console.log("/products was called!")
 })
 
 app.get("/api/products", async function (request, response) {
   response.json(products)
+  console.log("api/products was called!")
 })
 
 app.get("/products/:id", async function(request, response) {
@@ -26,13 +28,14 @@ app.get("/products/:id", async function(request, response) {
 
   // Respond with the specified product
   response.json(products[productIndex])
+  console.log("/products/:id was called!")
 })
 
 app.post("/products", async function(request, response) {
   // NOTE: `body` accesses values from the JSON request body
-  var providedName = request.body["firstName"]
-  var providedCategory = request.body["lastName"]
-  var providedPrice = request.body["age"]
+  var providedName = request.body["name"]
+  var providedCategory = request.body["category"]
+  var providedPrice = request.body["price"]
   var providedWeight = request.body["weight"]
 
   var nextId = idCounter

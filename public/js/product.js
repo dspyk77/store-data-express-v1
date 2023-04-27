@@ -18,9 +18,20 @@ async function getProduct() {
   let response = await fetch("/api/product/${id}", { method: "GET" })
   let product= await response.json()
 
+  // output.insertAdjacentHTML("beforeend", `
+  //   <ul>
+  //     <li>Name: Apple</li>
+  //     <li>Category: Produce</li>
+  //     <li>Price: $2.59</li>
+  //      <li>Weight: 3oz</li>
+  //   </ul>
+  // `)
+
 	console.log(product)
 	console.log(product["name"])
 	console.log(product["category"])
 
 	output.innerHTML = JSON.stringify(product)
 }
+
+getProduct()
