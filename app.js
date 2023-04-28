@@ -9,6 +9,9 @@ idCounter = 0
 
 products = []
 
+var value = 0
+num = value
+
 app.get("/products", async function(request, response) {
   // Respond with the products array
   response.json(products)
@@ -32,6 +35,12 @@ app.get("/products/:id", async function(request, response) {
   response.json(products[productIndex])
   console.log("/products/:id was called!")
   console.log(products[productIndex])
+})
+
+app.get("/retrieve", async function (request, response) {
+  response.json(num)
+  console.log("/retrive was called!")
+  console.log(num)
 })
 
 app.post("/products", async function(request, response) {
@@ -59,6 +68,22 @@ app.post("/products", async function(request, response) {
   response.json(newProduct)
   console.log("/products was called!")
   console.log(newProduct)
+})
+
+app.post("/save", async function(request, response) {
+  var providedNum = request.body["value"];
+  var newNum = {
+    value: providedNum
+  }
+  console.log(newNum)
+
+  // nums.push(newNum)
+  value = newNum;
+
+  // JSON response
+  response.json(newNum)
+  console.log("Here is your new number!")
+  console.log(newNum)
 })
 
 app.delete("/products/:id", async function(request, response) {
