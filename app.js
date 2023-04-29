@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 
+
 app.use(express.static("public"))
 
 app.use(express.json())
@@ -9,8 +10,39 @@ idCounter = 0
 
 products = []
 
-var value = 0
-num = value
+let value = null
+
+app.post('/save', (request, response) => {
+  value = request.body.value;
+  response.json({ message: 'Value saved successfully!' })
+})
+
+app.get('/retrieve', (request, response) => {
+  response.json({ value })
+})
+
+// myInt = null
+
+// app.post("/save", async function(request, response) {
+//   var providedValue = request.body.myInt
+//   var newValue = {
+//     value: providedValue
+//   }
+
+//   console.log(newValue)
+//   myInt = newValue
+//   console.log(newValue)
+
+//   // JSON response
+//   response.json(newValue)
+//   console.log("Here is your new integer!")
+//   console.log(newValue)
+// })
+
+// app.get('/retrieve', (request, response) => {
+//   response.json({  "value": myInt })
+//   console.log(myInt)
+// });
 
 app.get("/products", async function(request, response) {
   // Respond with the products array
@@ -37,11 +69,7 @@ app.get("/products/:id", async function(request, response) {
   console.log(products[productIndex])
 })
 
-app.get("/retrieve", async function (request, response) {
-  response.json(num)
-  console.log("/retrive was called!")
-  console.log(num)
-})
+
 
 app.post("/products", async function(request, response) {
   // NOTE: `body` accesses values from the JSON request body
@@ -70,29 +98,13 @@ app.post("/products", async function(request, response) {
   console.log(newProduct)
 })
 
-app.post("/save", async function(request, response) {
-  var providedNum = request.body["value"];
-  var newNum = {
-    value: providedNum
-  }
-  console.log(newNum)
-
-  // nums.push(newNum)
-  value = newNum;
-
-  // JSON response
-  response.json(newNum)
-  console.log("Here is your new number!")
-  console.log(newNum)
-})
-
 app.delete("/products/:id", async function(request, response) {
   // NOTE: `params` accesses values from the URL path
   var id = request.params.id
 
   var productIndex = findProductIndexById(id);
 
-  products.splice(productIndex, 1);
+  products.splice(productIndex, 1)
 
   // Respond with a message
   response.json({ msg: 'Deleted product' })
