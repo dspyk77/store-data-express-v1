@@ -10,40 +10,6 @@ idCounter = 0
 
 products = []
 
-let value = null
-
-app.post('/save', (request, response) => {
-  value = request.body.value;
-  response.json({ message: 'Value saved successfully!' })
-})
-
-app.get('/retrieve', (request, response) => {
-  response.json({ value })
-})
-
-// myInt = null
-
-// app.post("/save", async function(request, response) {
-//   var providedValue = request.body.myInt
-//   var newValue = {
-//     value: providedValue
-//   }
-
-//   console.log(newValue)
-//   myInt = newValue
-//   console.log(newValue)
-
-//   // JSON response
-//   response.json(newValue)
-//   console.log("Here is your new integer!")
-//   console.log(newValue)
-// })
-
-// app.get('/retrieve', (request, response) => {
-//   response.json({  "value": myInt })
-//   console.log(myInt)
-// });
-
 app.get("/products", async function(request, response) {
   // Respond with the products array
   response.json(products)
@@ -68,8 +34,6 @@ app.get("/products/:id", async function(request, response) {
   console.log("/products/:id was called!")
   console.log(products[productIndex])
 })
-
-
 
 app.post("/products", async function(request, response) {
   // NOTE: `body` accesses values from the JSON request body
@@ -96,6 +60,26 @@ app.post("/products", async function(request, response) {
   response.json(newProduct)
   console.log("/products was called!")
   console.log(newProduct)
+})
+
+
+
+
+
+
+app.put("/products/:id", async function(request, response) {
+  // NOTE: `params` accesses values from the URL path  (:id)
+  var id = request.params.id
+
+  var productIndex = findProductIndexById(id)
+  var newProduct = request.body;
+
+  products.splice(productIndex, 1, newProduct);
+
+
+  // Respond with the specified product
+  response.json({ msg: 'Updated product' })
+  console.log(products[productIndex])
 })
 
 app.delete("/products/:id", async function(request, response) {

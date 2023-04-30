@@ -26,7 +26,7 @@ async function updateInputs() {
   weightInput.value = product["weight"]
 }
 
-async function sendUpdateUserRequest() {
+async function sendUpdateProductRequest() {
   var apiUrl = `/products/${productId}`
   console.log(apiUrl)
 
@@ -36,16 +36,18 @@ async function sendUpdateUserRequest() {
     price: priceInput.value,
     weight: weightInput.value
   }
-
+  console.log("---Before fetch---")
+  console.log(updatedProduct)
+  
   var response = await fetch(apiUrl,
-    {
-      method: "PUT",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedProduct)
-    }
-  )
+  {
+    method: "PUT",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(updatedProduct)
+  })
 
   var product = await response.json()
+  console.log("---After fetch---")
   console.log(product)
 }
 

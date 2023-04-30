@@ -3,3 +3,17 @@ addItem.addEventListener("click", () => {
 	window.open("./users.html", "_blank");
 	console.log("I heard the addItem btn clicked!")
 });
+
+
+*** MINI API ***
+let value = null
+
+app.post('/save', (request, response) => {
+  value = request.body.value;
+  response.json({ message: 'Value saved successfully!' })
+})
+
+app.get('/retrieve', (request, response) => {
+  response.json({ value })
+})
+
