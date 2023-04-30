@@ -62,11 +62,6 @@ app.post("/products", async function(request, response) {
   console.log(newProduct)
 })
 
-
-
-
-
-
 app.put("/products/:id", async function(request, response) {
   // NOTE: `params` accesses values from the URL path  (:id)
   var id = request.params.id

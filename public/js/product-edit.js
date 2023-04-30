@@ -31,6 +31,7 @@ async function sendUpdateProductRequest() {
   console.log(apiUrl)
 
   var updatedProduct = {
+    id: productId,
     category: categoryInput.value,
     name: nameInput.value,
     price: priceInput.value,
