@@ -50,6 +50,7 @@ async function sendUpdateProductRequest() {
   var product = await response.json()
   console.log("---After fetch---")
   console.log(product)
+  location.href=`/products.html`
 }
 
 updateBackLink()

@@ -33,6 +33,7 @@ async function sendDeleteUserRequest() {
   var response = await fetch(`/products/${productId}`, { method: "DELETE" })
   var message = await response.json()
   console.log(message)
+  location.href=`/products.html`
 }
 
 updateEditLink()
